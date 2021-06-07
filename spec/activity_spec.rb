@@ -21,7 +21,7 @@ RSpec.describe Activity do
     before :each do
       @activity = Activity.new("Brunch")
     end
-    
+
     it 'adds participants to activity' do
       @activity.add_participant("Maria", 20)
       expect(@activity.participants).to eq({"Maria" => 20})
@@ -34,6 +34,12 @@ RSpec.describe Activity do
       expect(@activity.total_cost).to eq(20)
       @activity.add_participant("Luther", 40)
       expect(@activity.total_cost).to eq(60)
+    end
+
+    it 'splits cost between participants' do
+      @activity.add_participant("Maria", 20)
+      @activity.add_participant("Luther", 40)
+      expect(@activity.split).to eq(30)
     end
   end
 end
