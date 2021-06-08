@@ -45,7 +45,7 @@ RSpec.describe Activity do
     it 'calculates owed money by cost difference' do
       @activity.add_participant("Maria", 20)
       @activity.add_participant("Luther", 40)
-      expect(@activity.owed),to eq({"Maria" => 10, "Luther" => -10})
+      expect(@activity.owed).to eq({"Maria" => 10, "Luther" => -10})
     end
   end
 end
